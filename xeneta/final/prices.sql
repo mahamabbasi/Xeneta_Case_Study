@@ -1,0 +1,1 @@
+-- the requirements for the case_study as per my understanding have been catered in the aggregations model

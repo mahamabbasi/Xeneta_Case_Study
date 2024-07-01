@@ -1,0 +1,109 @@
+version: 2
+
+
+
+models:
+  - name: stg_ports
+    description: This table has basic information about a customer, as well as some derived facts based on a customer's orders
+    
+
+    config:
+      contract:
+        enforced: true
+
+    constraints:
+      - type: primary_key
+        columns: [PID]
+        
+    columns:
+      - name: PID
+        data_type: integer
+        description: This is a unique identifier for a port
+        constraints:
+          - type : not_null
+        
+      - name: Code
+        data_type: char(5)
+
+      - name: Slug
+        data_type: varchar
+
+      - name: Name
+        data_type: varchar
+
+      - name: Country
+        data_type: varchar
+
+      - name: Country_Code
+        data_type: char(2)
+  
+  # - name: stg_datapoints
+  #   description: This table has basic information about a customer, as well as some derived facts based on a customer's orders
+  #   on_schema_change:  'append_new_columns'
+
+  #   config:
+  #     contract:
+  #       enforced: true
+
+  #   constraints:
+  #     - type: primary_key
+  #       columns: [D_ID]
+        
+  #   columns:
+  #     - name: D_ID
+  #       data_type: integer
+  #       description: This is a unique identifier for a data point
+  #       constraints:
+  #         - type : not_null
+        
+  #     - name: Created
+  #       data_type: timestamp
+
+  #     - name: Origin_PID
+  #       data_type: integer
+
+  #     - name: Destination_PID
+  #       data_type: integer
+
+  #     - name: Valid_From
+  #       data_type: date
+
+  #     - name: Valid_To
+  #       data_type: date
+      
+  #     - name: Company_ID
+  #       data_type: integer
+
+  #     - name: Supplier_ID
+  #       data_type: integer
+
+  #     - name: Equipment_ID
+  #       data_type: integer
+  
+
+  - name: stg_charges
+    description: This table has basic information about a customer, as well as some derived facts based on a customer's orders
+    
+    config:
+      contract:
+        enforced: true
+    
+    constraints:
+      - type: foreign_key
+        columns: [D_ID]
+        
+    columns:
+      - name: D_ID
+        data_type: integer
+        description: This is a unique identifier for a data point
+        constraints:
+          - type : not_null
+        
+      - name: Currency
+        data_type: char(3)
+
+      - name: Charge_Value
+        data_type: integer
+      
+      - name: row_num
+        data_type: BIGINT
