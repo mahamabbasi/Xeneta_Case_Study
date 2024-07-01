@@ -12,7 +12,7 @@ Would load datapoints and charges with new files and then re-run the aggregation
 A query_for_end_users.sql is present in the folder that contains the query to help the end users in quering the aggregations model
 
 **#Time Distribution**
-I hadn't worked on dbt and also with duckdb before, hence a lot was learnt in the process specially w.r.t dbt.
+I hadn't worked on dbt and also with duckdb before, hence it was trial and error with certain things but good thing that I learnt in the process specially w.r.t dbt.
 
 Dbt and Duckdb installation and integration: 1 hour
 Initial loading of data from .csv to raw tables : 30 minutes
